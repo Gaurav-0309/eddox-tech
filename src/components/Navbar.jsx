@@ -15,12 +15,12 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link href="/images/eddox-logo.jpg" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <span className="text-xl font-extrabold text-orange-500 tracking-wide">
             EDDOX‑TECHNOLOGY
           </span>
           <img
-            src="/images/edox-logo.jpg"
+            src="/images/eddox-logo.jpg"
             alt="Eddox Technology Logo"
             className="w-10 h-10 object-contain"
           />
@@ -43,7 +43,7 @@ export default function Navbar() {
             onMouseEnter={() => setOpenMenu("courses")}
             onMouseLeave={() => setOpenMenu(null)}
           >
-            <span className={navItemClass}>Courses</span>
+            <span className={navItemClass} > <Link href="/courses">Courses</Link></span>
 
             {openMenu === "courses" && (
               <div className="absolute top-8 left-0 w-56 bg-white shadow-xl rounded-xl border p-2">
