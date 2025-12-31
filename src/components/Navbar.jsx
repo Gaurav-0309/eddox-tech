@@ -15,7 +15,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/images/eddox-logo.jpg" className="flex items-center gap-3">
           <span className="text-xl font-extrabold text-orange-500 tracking-wide">
             EDDOX‑TECHNOLOGY
           </span>
@@ -121,17 +121,32 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t px-6 py-6 space-y-4">
-          <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
-          <Link href="/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
-          <Link href="/courses" onClick={() => setMobileOpen(false)}>Courses</Link>
-          <Link href="/corporate-training" onClick={() => setMobileOpen(false)}>Corporate Training</Link>
-          <Link href="/online-registration" onClick={() => setMobileOpen(false)}>Online Registration</Link>
-          <Link href="/talent-pool" onClick={() => setMobileOpen(false)}>Talent Pool to Hire</Link>
-          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-          <Link href="/certificate" onClick={() => setMobileOpen(false)}>Certificate</Link>
-        </div>
-      )}
+  <div className="md:hidden bg-white border-t shadow-lg">
+    <ul className="flex flex-col divide-y text-base font-medium">
+      {[
+        { label: "Home", href: "/" },
+        { label: "About Us", href: "/about-us" },
+        { label: "Courses", href: "/courses" },
+        { label: "Corporate Training", href: "/corporate-training" },
+        { label: "Online Registration", href: "/online-registration" },
+        { label: "Talent Pool to Hire", href: "/talent-pool" },
+        { label: "Contact Us", href: "/contact-us" },
+        { label: "Certificate", href: "/certificate" },
+      ].map((item) => (
+        <li key={item.href}>
+          <Link
+            href={item.href}
+            onClick={() => setMobileOpen(false)}
+            className="block px-6 py-4 text-gray-800 hover:bg-gray-100 transition"
+          >
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
     </header>
   );
 }
