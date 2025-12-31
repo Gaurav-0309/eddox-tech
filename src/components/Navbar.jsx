@@ -5,32 +5,37 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItemClass =
-  "relative text-sm font-medium text-black-900 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full hover:text-blue-600";
-
+    "relative text-sm font-medium text-black after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full";
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* LOGO */}
-        <div className="flex items-center gap-3 text-xl font-extrabold text-orange-500 tracking-wide">
-          <span className="leading-none">EDDOX-TECHNOLOGY</span>
-          <img src="/images/eddox-logo.jpg" alt="Eddox Technology Logo" className="logo w-15 h-15 object-contain" />
-        </div>
+        <Link href="/" className="flex items-center gap-3">
+          <span className="text-xl font-extrabold text-orange-500 tracking-wide">
+            EDDOX‑TECHNOLOGY
+          </span>
+          <img
+            src="/images/edox-logo.jpg"
+            alt="Eddox Technology Logo"
+            className="w-10 h-10 object-contain"
+          />
+        </Link>
 
-        {/* NAV LINKS */}
+        {/* DESKTOP NAV */}
         <ul className="hidden md:flex items-center gap-8">
 
           <li className={navItemClass}>
-  <Link href="/">Home</Link>
-</li>
+            <Link href="/">Home</Link>
+          </li>
 
           <li className={navItemClass}>
-      <Link href="/about-us">About Us</Link>
-        </li>
-
+            <Link href="/about-us">About Us</Link>
+          </li>
 
           {/* COURSES DROPDOWN */}
           <li
@@ -38,11 +43,7 @@ export default function Navbar() {
             onMouseEnter={() => setOpenMenu("courses")}
             onMouseLeave={() => setOpenMenu(null)}
           >
-            
-            <span className={navItemClass}>
-              <Link href="/courses">Courses ▾</Link>
-              
-            </span>
+            <span className={navItemClass}>Courses</span>
 
             {openMenu === "courses" && (
               <div className="absolute top-8 left-0 w-56 bg-white shadow-xl rounded-xl border p-2">
@@ -53,8 +54,8 @@ export default function Navbar() {
                   "Full Stack",
                   "MS Excel",
                   "MS Powerpoint",
-                  "python",
-                  "java",
+                  "Python",
+                  "Java",
                   "Mobile Application Development",
                   "Digital Marketing",
                   "Network and Security",
@@ -73,9 +74,11 @@ export default function Navbar() {
           <li className={navItemClass}>
             <Link href="/corporate-training">Corporate Training</Link>
           </li>
+
           <li className={navItemClass}>
             <Link href="/online-registration">Online Registration</Link>
           </li>
+
           <li className={navItemClass}>
             <Link href="/talent-pool">Talent Pool to Hire</Link>
           </li>
@@ -86,33 +89,49 @@ export default function Navbar() {
             onMouseEnter={() => setOpenMenu("other")}
             onMouseLeave={() => setOpenMenu(null)}
           >
-            <span className={navItemClass}>
-              Other ▾
-            </span>
+            <span className={navItemClass}>Other</span>
 
             {openMenu === "other" && (
-  <div className="absolute top-8 left-0 w-48 bg-white shadow-xl rounded-xl border p-2">
-    {[
-      { label: "Contact Us", href: "/contact-us" },
-      { label: "Certificate", href: "/certificate" },
-    ].map((item) => (
-      <Link
-        key={item.label}
-        href={item.href}
-        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-        onClick={() => setOpenMenu(null)} // optional: closes menu
-      >
-        {item.label}
-      </Link>
-    ))}
-  </div>
-)}
-
+              <div className="absolute top-8 left-0 w-48 bg-white shadow-xl rounded-xl border p-2">
+                <Link
+                  href="/contact-us"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-md"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="/certificate"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-md"
+                >
+                  Certificate
+                </Link>
+              </div>
+            )}
           </li>
         </ul>
 
-        
+        {/* MOBILE HAMBURGER */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          ☰
+        </button>
       </nav>
+
+      {/* MOBILE MENU */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-t px-6 py-6 space-y-4">
+          <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
+          <Link href="/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
+          <Link href="/courses" onClick={() => setMobileOpen(false)}>Courses</Link>
+          <Link href="/corporate-training" onClick={() => setMobileOpen(false)}>Corporate Training</Link>
+          <Link href="/online-registration" onClick={() => setMobileOpen(false)}>Online Registration</Link>
+          <Link href="/talent-pool" onClick={() => setMobileOpen(false)}>Talent Pool to Hire</Link>
+          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+          <Link href="/certificate" onClick={() => setMobileOpen(false)}>Certificate</Link>
+        </div>
+      )}
     </header>
   );
 }
