@@ -22,7 +22,7 @@ export default function Navbar() {
           <img
             src="/images/eddox-logo.jpg"
             alt="Eddox Technology Logo"
-            className="w-10 h-10 object-contain"
+            className="w-18 h-18 object-contain"
           />
         </Link>
 
@@ -52,8 +52,8 @@ export default function Navbar() {
                   "Salesforce",
                   "ERP Training",
                   "Full Stack",
-                  "MS Excel",
-                  "MS Powerpoint",
+                  "Microsoft Excel",
+                  "Microsoft Powerpoint",
                   "Python",
                   "Java",
                   "Mobile Application Development",
