@@ -11,6 +11,7 @@ export default function AdminNavbar() {
     { name: "Dashboard", href: "/admin/dashboard" },
     { name: "Registrations", href: "/admin/registrations" },
     { name: "Talent Pool", href: "/admin/talent-pool" },
+    { name: "Certificates", href: "/admin/certificates" },
   ];
 
   const handleLogout = async () => {
