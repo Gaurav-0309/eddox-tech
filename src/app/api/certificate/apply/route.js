@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
-import CertificateRequest from "@/models/CertificateRequest";
+import CertificateRequest from "@/models/certificateRequest";
 
 // POST: submit certificate request
 export async function POST(req) {
