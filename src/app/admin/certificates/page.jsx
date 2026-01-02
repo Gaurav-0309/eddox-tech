@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 
 export default function AdminCertificatesPage() {
+  const [uploading, setUploading] = useState(false);
+  const [uploadedFiles, setUploadedFiles] = useState({});
+
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -88,48 +91,85 @@ export default function AdminCertificatesPage() {
       <td className="px-4 py-3">
         {new Date(req.createdAt).toLocaleDateString()}
       </td>
-      <td className="px-4 py-3 space-y-2 min-w-[220px]">
+      <td className="px-4 py-3 space-y-2 min-w-[240px]">
   {req.status === "Pending" && (
     <>
-      {/* CERTIFICATE FILE INPUT */}
+      {/* FILE UPLOAD */}
       <input
-        type="text"
-        placeholder="Certificate PDF path (e.g. /certificates/abc.pdf)"
-        className="w-full border px-2 py-1 text-xs rounded"
-        id={`cert-${req._id}`}
+        type="file"
+        accept="application/pdf"
+        className="text-xs"
+        onChange={async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          setUploading(true);
+
+          const formData = new FormData();
+          formData.append("file", file);
+
+          const res = await fetch(
+            "/api/admin/certificate/upload",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          const data = await res.json();
+          setUploading(false);
+
+          if (data.success) {
+            setUploadedFiles((prev) => ({
+              ...prev,
+              [req._id]: data.fileUrl,
+            }));
+          } else {
+            alert("File upload failed");
+          }
+        }}
       />
 
-      <div className="flex gap-2">
-        {/* APPROVE */}
-        <button
-          onClick={async () => {
-            const input = document.getElementById(`cert-${req._id}`);
-            if (!input.value) {
-              alert("Please enter certificate PDF path");
-              return;
-            }
+      {uploadedFiles[req._id] && (
+        <p className="text-green-600 text-xs">
+          File uploaded
+        </p>
+      )}
 
-            const res = await fetch("/api/admin/certificate/update", {
+      {/* APPROVE */}
+      <button
+        onClick={async () => {
+          if (!uploadedFiles[req._id]) {
+            alert("Please upload certificate first");
+            return;
+          }
+
+          const res = await fetch(
+            "/api/admin/certificate/update",
+            {
               method: "PATCH",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 id: req._id,
                 status: "Approved",
-                certificateUrl: input.value,
+                certificateUrl: uploadedFiles[req._id],
               }),
-            });
+            }
+          );
 
-            if (res.ok) window.location.reload();
-          }}
-          className="bg-green-600 text-white px-3 py-1 rounded text-xs"
-        >
-          Approve
-        </button>
+          if (res.ok) window.location.reload();
+        }}
+        className="bg-green-600 text-white px-3 py-1 rounded text-xs"
+      >
+        {uploading ? "Uploading..." : "Approve"}
+      </button>
 
-        {/* REJECT */}
-        <button
-          onClick={async () => {
-            const res = await fetch("/api/admin/certificate/update", {
+      {/* REJECT */}
+      <button
+        onClick={async () => {
+          const res = await fetch(
+            "/api/admin/certificate/update",
+            {
               method: "PATCH",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -138,19 +178,19 @@ export default function AdminCertificatesPage() {
                 rejectionReason:
                   "Your request has been rejected. Please contact support.",
               }),
-            });
+            }
+          );
 
-            if (res.ok) window.location.reload();
-          }}
-          className="bg-red-600 text-white px-3 py-1 rounded text-xs"
-        >
-          Reject
-        </button>
-      </div>
+          if (res.ok) window.location.reload();
+        }}
+        className="bg-red-600 text-white px-3 py-1 rounded text-xs"
+      >
+        Reject
+      </button>
     </>
   )}
 
-  {/* AFTER APPROVAL */}
+  {/* APPROVED */}
   {req.status === "Approved" && req.certificateUrl && (
     <a
       href={req.certificateUrl}
@@ -161,13 +201,14 @@ export default function AdminCertificatesPage() {
     </a>
   )}
 
-  {/* AFTER REJECTION */}
+  {/* REJECTED */}
   {req.status === "Rejected" && (
     <span className="text-red-600 text-xs">
-      Request Rejected
+      Rejected
     </span>
   )}
 </td>
+
 
     </tr>
   ))}
