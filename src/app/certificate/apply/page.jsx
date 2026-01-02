@@ -1,7 +1,13 @@
 "use client";
+import { useState } from "react";
+
 import Image from "next/image";
 
 export default function ApplyCertificatePage() {
+  const [error, setError] = useState("");
+const [success, setSuccess] = useState("");
+const [loading, setLoading] = useState(false);
+
   return (
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -35,6 +41,10 @@ export default function ApplyCertificatePage() {
   onSubmit={async (e) => {
     e.preventDefault();
 
+    setError("");
+    setSuccess("");
+    setLoading(true);
+
     const formData = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -47,21 +57,34 @@ export default function ApplyCertificatePage() {
       endDate: e.target.endDate.value,
     };
 
-    const res = await fetch("/api/certificate/apply", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch("/api/certificate/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      alert("Certificate request submitted successfully");
-      e.target.reset();
-    } else {
-      alert("Something went wrong");
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(
+          data.message || "All required information must be filled correctly."
+        );
+      } else {
+        setSuccess(
+          "Your certificate request has been submitted successfully."
+        );
+        e.target.reset();
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   }}
   className="grid grid-cols-1 md:grid-cols-2 gap-6"
 >
+
 
 
                 {/* Name */}
@@ -180,14 +203,35 @@ export default function ApplyCertificatePage() {
                   />
                 </div>
 
+                {/* ERROR MESSAGE */}
+{error && (
+  <div className="md:col-span-2 text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+    {error}
+  </div>
+)}
+
+{/* SUCCESS MESSAGE */}
+{success && (
+  <div className="md:col-span-2 text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-3">
+    {success}
+  </div>
+)}
+
+
                 {/* BUTTONS */}
                 <div className="md:col-span-2 flex gap-4 mt-6">
                   <button
-                    type="submit"
-                    className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-medium transition"
-                  >
-                    Send Request
-                  </button>
+  type="submit"
+  disabled={loading}
+  className={`px-8 py-3 rounded-lg font-medium transition ${
+    loading
+      ? "bg-gray-400 cursor-not-allowed"
+      : "bg-blue-700 hover:bg-blue-800 text-white"
+  }`}
+>
+  {loading ? "Submitting..." : "Send Request"}
+</button>
+
 
                   <button
                     type="reset"

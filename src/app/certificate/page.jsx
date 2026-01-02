@@ -55,12 +55,6 @@ function CertificateSection({ heading, badge }) {
               Download Certificate
             </Link>
 
-            <Link
-              href="/certificate/verify"
-              className="block text-center w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-lg text-lg font-medium transition"
-            >
-              Verify Certificate
-            </Link>
           </div>
         </div>
       </div>
