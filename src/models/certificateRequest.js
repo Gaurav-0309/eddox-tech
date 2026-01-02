@@ -39,9 +39,20 @@ const CertificateRequestSchema = new mongoose.Schema(
       required: true,
     },
     status: {
-      type: String,
-      default: "Pending", // Pending | Approved | Rejected
-    },
+  type: String,
+  enum: ["Pending", "Approved", "Rejected"],
+  default: "Pending",
+},
+certificateUrl: {
+  type: String,
+  default: "",
+},
+rejectionReason: {
+  type: String,
+  default: "",
+},
+approvedAt: Date,
+
   },
   { timestamps: true }
 );
