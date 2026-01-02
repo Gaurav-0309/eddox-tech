@@ -30,7 +30,7 @@ export default function DownloadCertificatePage() {
 
     if (request.status === "Rejected") {
       setMessage(
-        "Your certificate request has been rejected due to various reasons. Please contact us at support@eddoxtechnology.com."
+        "Your certificate request has been rejected due to various reasons. Please contact us at Support@eddoxtech.com."
       );
       return;
     }
