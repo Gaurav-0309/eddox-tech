@@ -169,7 +169,7 @@ const [loading, setLoading] = useState(false);
                 {/* Student ID */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Ducat Student ID Number
+                    EddoxTechnology Student ID Number
                   </label>
                   <input
                     name="studentId"
