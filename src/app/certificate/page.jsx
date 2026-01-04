@@ -23,7 +23,7 @@ function CertificateSection({ heading, badge }) {
         <div className="flex justify-center">
           <div className="rounded-xl overflow-hidden shadow-md bg-gray-50 p-4">
             <Image
-              src="/images/certificate-sample.png"
+              src="/images/certificate.jpeg"
               alt="Certificate Preview"
               width={420}
               height={600}
