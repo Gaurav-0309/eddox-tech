@@ -1,4 +1,5 @@
 "use client";
+
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import { useEffect, useState } from "react";
 
@@ -6,29 +7,45 @@ export default function AdminRegistrationsPage() {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchRegistrations = async () => {
-      try {
-        const res = await fetch("/api/registrations");
-        const data = await res.json();
-        setRegistrations(Array.isArray(data) ? data : []);
-      } catch (error) {
-        console.error("Failed to fetch registrations", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Fetch registrations
+  const fetchRegistrations = async () => {
+    try {
+      const res = await fetch("/api/registrations");
+      const data = await res.json();
+      setRegistrations(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error("Failed to fetch registrations", error);
+      setRegistrations([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchRegistrations();
   }, []);
 
+  // ✅ DELETE REGISTRATION
+  const deleteRegistration = async (id) => {
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this registration?"
+    );
+    if (!confirmDelete) return;
+
+    await fetch("/api/registrations", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+
+    fetchRegistrations();
+  };
+
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-4 py-10">
       <AdminNavbar />
-      
-      <h1 className="text-2xl font-bold mb-6">
-        Online Registrations
-      </h1>
+
+      <h1 className="text-2xl font-bold mb-6">Online Registrations</h1>
 
       {loading && (
         <p className="text-gray-500">Loading registrations...</p>
@@ -54,6 +71,7 @@ export default function AdminRegistrationsPage() {
                 <th className="p-4">ZIP</th>
                 <th className="p-4">Amount</th>
                 <th className="p-4">Date</th>
+                <th className="p-4 text-red-600">Action</th>
               </tr>
             </thead>
 
@@ -73,10 +91,18 @@ export default function AdminRegistrationsPage() {
                   <td className="p-4">{r.country}</td>
                   <td className="p-4">{r.zip}</td>
                   <td className="p-4 font-medium">
-                    ₹{r.amount}
+                    {r.amount}
                   </td>
                   <td className="p-4 text-gray-500">
                     {new Date(r.createdAt).toLocaleDateString()}
+                  </td>
+                  <td className="p-4">
+                    <button
+                      onClick={() => deleteRegistration(r._id)}
+                      className="text-red-600 hover:underline text-sm"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

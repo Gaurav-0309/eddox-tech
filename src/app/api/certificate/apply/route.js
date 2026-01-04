@@ -39,3 +39,15 @@ export async function GET() {
     );
   }
 }
+
+export async function DELETE(req) {
+  const { id } = await req.json();
+
+  await CertificateRequest.findByIdAndDelete(id);
+
+  return new Response(
+    JSON.stringify({ success: true }),
+    { status: 200 }
+  );
+}
+

@@ -16,6 +16,18 @@ export async function GET() {
   }
 }
 
+export async function DELETE(req) {
+  const { id } = await req.json();
+
+  await Registration.findByIdAndDelete(id);
+
+  return new Response(
+    JSON.stringify({ success: true }),
+    { status: 200 }
+  );
+}
+
+
 // ✅ POST: Create new registration (Public)
 export async function POST(request) {
   try {
