@@ -19,7 +19,7 @@ const [loading, setLoading] = useState(false);
             <div className="flex justify-center">
               <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-blue-300 p-6 shadow-md">
                 <Image
-                  src="/images/certificate-sample.png"
+                  src="/images/certificate.jpeg"
                   alt="Certificate Preview"
                   width={420}
                   height={600}

@@ -1,8 +1,12 @@
 "use client";
 import AdminNavbar from "@/components/admin/AdminNavbar";
+
+
 import { useEffect, useState } from "react";
 
 export default function AdminTalentPoolPage() {
+  const [resumeFile, setResumeFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const [resumes, setResumes] = useState([]);
   const [form, setForm] = useState({
     name: "",
@@ -31,24 +35,59 @@ const fetchResumes = async () => {
 
   // Handle form submit
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    await fetch("/api/talent-pool", {
+  if (!resumeFile) {
+    alert("Please upload resume PDF");
+    return;
+  }
+
+  setUploading(true);
+
+  // 1. Upload resume
+  const formData = new FormData();
+  formData.append("resume", resumeFile);
+
+  const uploadRes = await fetch(
+    "/api/admin/talent-pool/upload-resume",
+    {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+      body: formData,
+    }
+  );
 
-    setForm({
-      name: "",
-      role: "",
-      skills: "",
-      experience: "",
-      resumeUrl: "",
-    });
+  const uploadData = await uploadRes.json();
 
-    fetchResumes();
-  };
+  if (!uploadRes.ok) {
+    alert("Resume upload failed");
+    setUploading(false);
+    return;
+  }
+
+  // 2. Create candidate
+  await fetch("/api/talent-pool", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...form,
+      resumeUrl: uploadData.resumeUrl,
+    }),
+  });
+
+  // Reset
+  setForm({
+    name: "",
+    role: "",
+    skills: "",
+    experience: "",
+    resumeUrl: "",
+  });
+  setResumeFile(null);
+  setUploading(false);
+
+  fetchResumes();
+};
+
 
   // Delete resume
   const deleteResume = async (id) => {
@@ -118,50 +157,53 @@ const fetchResumes = async () => {
         />
 
         <input
-          type="text"
-          placeholder="Resume URL (/resumes/john-doe.pdf)"
-          value={form.resumeUrl}
-          onChange={(e) =>
-            setForm({ ...form, resumeUrl: e.target.value })
-          }
-          className="border rounded px-3 py-2 w-full"
-          required
-        />
+  type="file"
+  accept="application/pdf"
+  onChange={(e) => setResumeFile(e.target.files[0])}
+  className="border rounded px-3 py-2 w-full"
+  required
+/>
+
+
+        
 
         <button
-          type="submit"
-          className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700"
-        >
-          Add Candidate
-        </button>
+  type="submit"
+  disabled={uploading}
+  className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+>
+  {uploading ? "Uploading..." : "Add Candidate"}
+</button>
+
       </form>
 
       {/* Resume List */}
-      <div className="space-y-4">
-        <h2 className="font-semibold text-lg">All Candidates</h2>
+<div className="space-y-4">
+  <h2 className="font-semibold text-lg">All Candidates</h2>
 
-        {resumes.map((r) => (
-          <div
-            key={r._id}
-            className="bg-white p-4 rounded-lg shadow flex justify-between items-center"
-          >
-            <div>
-              <p className="font-semibold">{r.name}</p>
-              <p className="text-sm text-gray-600">{r.role}</p>
-              <p className="text-sm text-gray-500">
-                {r.experience}
-              </p>
-            </div>
-
-            <button
-              onClick={() => deleteResume(r._id)}
-              className="text-red-600 text-sm"
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+  {resumes.map((r) => (
+    <div
+      key={r._id}
+      className="bg-white p-4 rounded-lg shadow flex justify-between items-center"
+    >
+      <div>
+        <p className="font-semibold">{r.name}</p>
+        <p className="text-sm text-gray-600">{r.role}</p>
+        <p className="text-sm text-gray-500">
+          {r.experience}
+        </p>
       </div>
+
+      <button
+        onClick={() => deleteResume(r._id)}
+        className="text-red-600 text-sm"
+      >
+        Delete
+      </button>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }
