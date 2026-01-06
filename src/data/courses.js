@@ -10,7 +10,7 @@ const courses = [
     "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB and build real-world projects.",
     duration: "6 Months",
     mode: "Online / Offline",
-    image: "/courses/fullstack.jpg",
+    image: "/courses/full-python.png",
   },
 
 
@@ -23,7 +23,7 @@ const courses = [
     "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB and build real-world projects.",
     duration: "6 Months",
     mode: "Online / Offline",
-    image: "/courses/fullstack.jpg",
+    image: "/courses/full-mern.png",
   },
 
   {
@@ -35,7 +35,7 @@ const courses = [
     "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB and build real-world projects.",
     duration: "6 Months",
     mode: "Online / Offline",
-    image: "/courses/fullstack.jpg",
+    image: "/courses/full-java.png",
   },
 
 
@@ -49,7 +49,7 @@ const courses = [
       "Master Python, statistics, machine learning, and data visualization with hands-on training.",
     duration: "5 Months",
     mode: "Online",
-    image: "/courses/datascience.jpg",
+    image: "/courses/data-science.jpg",
   },
 
   // DIGITAL MARKETING COURSE
@@ -62,7 +62,7 @@ const courses = [
       "SEO, social media marketing, Google Ads, content strategy and analytics.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/digitalmarketing.jpg",
+    image: "/courses/digital-marketing.png",
   },
 
   {
@@ -114,7 +114,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-time-tracking.png",
   },
 
   {
@@ -126,7 +126,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-recruiting.png",
   },
 
   {
@@ -138,7 +138,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-benefits.png",
   },
 
   {
@@ -150,7 +150,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-learning.png",
   },
 
 
@@ -163,7 +163,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-financial.png",
   },
 
 
@@ -176,7 +176,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-reporting.png",
   },
 
   {
@@ -188,7 +188,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-EIB.png",
   },
 
   {
@@ -200,7 +200,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-security.png",
   },
 
 
@@ -216,7 +216,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/salesforce-admin.png",
   },
 
   {
@@ -228,7 +228,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/salesforce-dev.png",
   },
 
   {
@@ -240,7 +240,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/salesforce-lwc.png",
   },
 
   {
@@ -252,7 +252,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/salesforce-a&d.png",
   },
 
 

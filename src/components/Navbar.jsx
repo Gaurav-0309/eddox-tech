@@ -135,6 +135,13 @@ const closeDropdown = () => {
       : "opacity-0 translate-y-2 pointer-events-none"}`}
 >
 
+  <Link
+                  href="/fees"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-md"
+                >
+                  Pay Fees
+                </Link>
+
 
 
 
