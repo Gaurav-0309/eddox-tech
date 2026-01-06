@@ -31,6 +31,17 @@ export default function PaymentDetailsPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const loadRazorpay = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
+
   const handleCourseChange = (e) => {
     const selectedCourse = e.target.value;
     const courseAmount = coursePrices[selectedCourse] || '';
@@ -42,11 +53,67 @@ export default function PaymentDetailsPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+  const handlePayment = async (e) => {
+  e.preventDefault();
+
+  if (!formData.amount || !formData.email || !formData.firstName) {
+    alert("Please fill all required fields");
+    return;
+  }
+
+  const sdkLoaded = await loadRazorpay();
+  if (!sdkLoaded) {
+    alert("Razorpay SDK failed to load");
+    return;
+  }
+
+  // 1️⃣ Create order
+  const res = await fetch("/api/razorpay/create-order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount: formData.amount }),
+  });
+
+  const order = await res.json();
+
+  // 2️⃣ Open Razorpay
+  const options = {
+    key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+    amount: order.amount,
+    currency: order.currency,
+    name: "EDDOX TECHNOLOGY",
+    description: "Course Payment",
+    order_id: order.id,
+    prefill: {
+      name: formData.firstName,
+      email: formData.email,
+      contact: formData.mobileNumber,
+    },
+    handler: async function (response) {
+      // 3️⃣ Verify payment
+      const verify = await fetch("/api/razorpay/verify-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(response),
+      });
+
+      const result = await verify.json();
+
+      if (result.success) {
+        alert("Payment Successful 🎉");
+      } else {
+        alert("Payment verification failed");
+      }
+    },
+    theme: {
+      color: "#2563eb",
+    },
   };
+
+  const rzp = new window.Razorpay(options);
+  rzp.open();
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-5">
@@ -254,7 +321,7 @@ export default function PaymentDetailsPage() {
 
             {/* Submit Button */}
             <button
-              onClick={handleSubmit}
+              onClick={handlePayment}
               className="w-full px-4 py-4 bg-blue-600 text-white rounded-md text-lg font-semibold hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 transition-all duration-300 mt-3"
             >
               Proceed to Pay
