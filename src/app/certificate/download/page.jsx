@@ -1,78 +1,81 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function DownloadCertificatePage() {
+  const searchParams = useSearchParams();
+  const certificateType = searchParams.get("type"); // ✅ CRITICAL
+
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [downloadUrl, setDownloadUrl] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  const checkStatus = async () => {
+    setLoading(true);
     setMessage("");
     setDownloadUrl("");
 
-    const email = e.target.email.value;
-
-    const res = await fetch("/api/certificate/apply");
+    const res = await fetch(
+      `/api/certificate/my?email=${email}&type=${certificateType}`
+    );
     const data = await res.json();
 
-    const request = data.data.find((r) => r.email === email);
+    setLoading(false);
 
-    if (!request) {
-      setMessage("No certificate request found for this email.");
+    if (!data.data) {
+      setMessage("No certificate request found.");
       return;
     }
 
-    if (request.status === "Pending") {
-      setMessage("Your certificate request is currently under review.");
-      return;
+    if (data.data.status === "Pending") {
+      setMessage("Your request is under review.");
+    } else if (data.data.status === "Rejected") {
+      setMessage("Your request was rejected. Contact support.");
+    } else if (data.data.status === "Approved") {
+      setMessage("Certificate approved. Download below.");
+      setDownloadUrl(data.data.certificateUrl);
     }
-
-    if (request.status === "Rejected") {
-      setMessage(
-        "Your certificate request has been rejected due to various reasons. Please contact us at Support@eddoxtech.com."
-      );
-      return;
-    }
-
-    if (request.status === "Approved" && request.certificateUrl) {
-      setDownloadUrl(request.certificateUrl);
-    }
-  }
+  };
 
   return (
-    <section className="py-16">
-      <div className="max-w-md mx-auto bg-white shadow rounded-lg p-6">
-        <h1 className="text-xl font-bold mb-4">Download Certificate</h1>
+    <main className="max-w-md mx-auto px-6 py-16">
+      <h1 className="text-2xl font-bold mb-6 text-center">
+        Download Certificate
+      </h1>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            name="email"
-            type="email"
-            placeholder="Enter registered email"
-            className="w-full border px-4 py-2 rounded"
-            required
-          />
+      <input
+        type="email"
+        placeholder="Enter registered email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="border w-full px-4 py-3 rounded mb-4"
+      />
 
-          <button className="w-full bg-blue-700 text-white py-2 rounded">
-            Check Status
-          </button>
-        </form>
+      <button
+        onClick={checkStatus}
+        disabled={loading}
+        className="bg-blue-600 text-white w-full py-3 rounded"
+      >
+        {loading ? "Checking..." : "Check Status"}
+      </button>
 
-        {message && (
-          <p className="mt-4 text-sm text-red-600">{message}</p>
-        )}
+      {message && (
+        <p className="mt-4 text-center text-gray-700">
+          {message}
+        </p>
+      )}
 
-        {downloadUrl && (
-          <a
-            href={downloadUrl}
-            download
-            className="block mt-4 text-center text-green-700 underline font-medium"
-          >
-            Download Your Certificate
-          </a>
-        )}
-      </div>
-    </section>
+      {downloadUrl && (
+        <a
+          href={downloadUrl}
+          download
+          className="mt-4 block text-center bg-green-600 text-white py-3 rounded"
+        >
+          Download Certificate
+        </a>
+      )}
+    </main>
   );
 }

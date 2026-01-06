@@ -3,20 +3,32 @@
 import { useEffect, useState } from "react";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 
+const TABS = [
+  { label: "Internship Certificates", type: "internship" },
+  {
+    label: "Course Completion Certificates",
+    type: "course-completion",
+  },
+];
+
 export default function AdminCertificatesPage() {
+  const [activeTab, setActiveTab] = useState("internship");
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState({});
 
-  // Fetch certificate requests
+  // Fetch requests based on active tab
   const fetchRequests = async () => {
+    setLoading(true);
     try {
-      const res = await fetch("/api/certificate/apply");
+      const res = await fetch(
+        `/api/certificate/apply?type=${activeTab}`
+      );
       const data = await res.json();
       setRequests(data?.data || []);
-    } catch (error) {
-      console.error("Failed to fetch certificate requests", error);
+    } catch (err) {
+      console.error("Failed to fetch certificate requests", err);
       setRequests([]);
     } finally {
       setLoading(false);
@@ -25,9 +37,9 @@ export default function AdminCertificatesPage() {
 
   useEffect(() => {
     fetchRequests();
-  }, []);
+  }, [activeTab]);
 
-  // Upload certificate PDF
+  // Upload certificate
   const uploadCertificate = async (file, requestId) => {
     if (!file) return;
 
@@ -53,9 +65,9 @@ export default function AdminCertificatesPage() {
     }
   };
 
-  // Approve request
-  const approveRequest = async (reqId) => {
-    if (!uploadedFiles[reqId]) {
+  // Approve
+  const approveRequest = async (id) => {
+    if (!uploadedFiles[id]) {
       alert("Please upload certificate first");
       return;
     }
@@ -64,22 +76,22 @@ export default function AdminCertificatesPage() {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        id: reqId,
+        id,
         status: "Approved",
-        certificateUrl: uploadedFiles[reqId],
+        certificateUrl: uploadedFiles[id],
       }),
     });
 
     fetchRequests();
   };
 
-  // Reject request
-  const rejectRequest = async (reqId) => {
+  // Reject
+  const rejectRequest = async (id) => {
     await fetch("/api/admin/certificate/update", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        id: reqId,
+        id,
         status: "Rejected",
         rejectionReason:
           "Your request has been rejected. Please contact support.",
@@ -89,24 +101,20 @@ export default function AdminCertificatesPage() {
     fetchRequests();
   };
 
-  // Delete request
-  const deleteRequest = async (reqId) => {
+  // Delete
+  const deleteRequest = async (id) => {
     const confirmDelete = confirm(
       "Are you sure you want to delete this certificate request?"
     );
     if (!confirmDelete) return;
 
-    const res = await fetch("/api/certificate/apply", {
+    await fetch("/api/certificate/apply", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: reqId }),
+      body: JSON.stringify({ id }),
     });
 
-    if (res.ok) {
-      setRequests((prev) => prev.filter((r) => r._id !== reqId));
-    } else {
-      alert("Failed to delete request");
-    }
+    setRequests((prev) => prev.filter((r) => r._id !== id));
   };
 
   return (
@@ -118,6 +126,24 @@ export default function AdminCertificatesPage() {
           Certificate Requests
         </h1>
 
+        {/* TABS */}
+        <div className="flex gap-3 mb-6">
+          {TABS.map((tab) => (
+            <button
+              key={tab.type}
+              onClick={() => setActiveTab(tab.type)}
+              className={`px-4 py-2 rounded text-sm font-medium ${
+                activeTab === tab.type
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* CONTENT */}
         {loading ? (
           <p>Loading...</p>
         ) : requests.length === 0 ? (
@@ -129,16 +155,12 @@ export default function AdminCertificatesPage() {
                 <tr>
                   <th className="px-4 py-3 text-left">Name</th>
                   <th className="px-4 py-3 text-left">Email</th>
-                  <th className="px-4 py-3 text-left">Phone</th>
                   <th className="px-4 py-3 text-left">Course</th>
-                  <th className="px-4 py-3 text-left">Center</th>
-                  <th className="px-4 py-3 text-left">Faculty</th>
-                  <th className="px-4 py-3 text-left">Student ID</th>
-                  <th className="px-4 py-3 text-left">Start Date</th>
-                  <th className="px-4 py-3 text-left">End Date</th>
                   <th className="px-4 py-3 text-left">Status</th>
                   <th className="px-4 py-3 text-left">Applied On</th>
-                  <th className="px-4 py-3 text-left">Actions</th>
+                  <th className="px-4 py-3 text-left">
+                    Actions
+                  </th>
                 </tr>
               </thead>
 
@@ -150,13 +172,7 @@ export default function AdminCertificatesPage() {
                   >
                     <td className="px-4 py-3">{req.name}</td>
                     <td className="px-4 py-3">{req.email}</td>
-                    <td className="px-4 py-3">{req.phone}</td>
                     <td className="px-4 py-3">{req.course}</td>
-                    <td className="px-4 py-3">{req.center}</td>
-                    <td className="px-4 py-3">{req.facultyName}</td>
-                    <td className="px-4 py-3">{req.studentId}</td>
-                    <td className="px-4 py-3">{req.startDate}</td>
-                    <td className="px-4 py-3">{req.endDate}</td>
 
                     <td className="px-4 py-3">
                       <span
@@ -173,7 +189,9 @@ export default function AdminCertificatesPage() {
                     </td>
 
                     <td className="px-4 py-3">
-                      {new Date(req.createdAt).toLocaleDateString()}
+                      {new Date(
+                        req.createdAt
+                      ).toLocaleDateString()}
                     </td>
 
                     <td className="px-4 py-3 space-y-2 min-w-[220px]">
@@ -197,7 +215,7 @@ export default function AdminCertificatesPage() {
                             </p>
                           )}
 
-                          <div className="flex gap-2 mt-2">
+                          <div className="flex gap-2">
                             <button
                               onClick={() =>
                                 approveRequest(req._id)
@@ -233,7 +251,9 @@ export default function AdminCertificatesPage() {
                         )}
 
                       <button
-                        onClick={() => deleteRequest(req._id)}
+                        onClick={() =>
+                          deleteRequest(req._id)
+                        }
                         className="text-red-600 text-xs underline block"
                       >
                         Delete

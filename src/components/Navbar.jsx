@@ -89,6 +89,8 @@ const closeDropdown = () => {
                   "Mobile Application Development",
                   "Digital Marketing",
                   "Network and Security",
+                  "POSH",
+                  "OSHA",
                 ].map((item) => (
                   <div
                     key={item}

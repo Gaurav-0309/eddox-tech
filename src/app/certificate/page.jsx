@@ -1,85 +1,88 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
-function CertificateSection({ heading, badge }) {
+export default function CertificatesPage() {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-20 transition hover:shadow-xl">
-      
-      {/* BADGE */}
-      <div className="text-center mb-3">
-        <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-4 py-1 rounded-full">
-          {badge}
-        </span>
-      </div>
+    <main className="max-w-6xl mx-auto px-6 py-14">
+      <h1 className="text-3xl font-bold text-center mb-14">
+        Certificates
+      </h1>
 
-      {/* HEADING */}
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
-        {heading}
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-        
-        {/* LEFT: CERTIFICATE PREVIEW */}
-        <div className="flex justify-center">
-          <div className="rounded-xl overflow-hidden shadow-md bg-gray-50 p-4">
+      <div className="grid md:grid-cols-2 gap-10">
+        {/* ================= INTERNSHIP CERTIFICATE ================= */}
+        <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6 flex flex-col">
+          <div className="relative h-56 w-full mb-6">
             <Image
-              src="/images/certificate.jpeg"
-              alt="Certificate Preview"
-              width={420}
-              height={600}
-              className="object-contain"
+              src="/certificates/internship-certificate.jpeg"
+              alt="Internship Certificate"
+              fill
+              className="object-contain rounded-lg"
             />
           </div>
-        </div>
 
-        {/* RIGHT: ACTIONS */}
-        <div className="flex flex-col items-center md:items-start gap-8">
-          <p className="text-gray-600 text-center md:text-left max-w-md leading-relaxed">
-            Apply for your certificate, download an already issued certificate,
-            or verify the authenticity of a certificate issued by
-            Eddox Technology.
+          <h2 className="text-xl font-semibold mb-2">
+            Internship Certificate
+          </h2>
+
+          <p className="text-gray-600 mb-8">
+            Awarded after successful internship completion.
           </p>
 
-          <div className="w-full max-w-sm space-y-5">
+          <div className="mt-auto flex flex-col gap-4">
             <Link
-              href="/certificate/apply"
-              className="block text-center w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-lg text-lg font-medium transition"
+              href="/certificate/apply?type=internship"
+              className="w-full text-center bg-green-200 text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition"
             >
-              Apply for Certificate
+              Apply for Internship Certificate
             </Link>
 
             <Link
-              href="/certificate/download"
-              className="block text-center w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-lg text-lg font-medium transition"
+              href="/certificate/download?type=internship"
+              className="w-full text-center bg-green-200 text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition"
             >
               Download Certificate
             </Link>
+          </div>
+        </div>
 
+        {/* ================= COURSE COMPLETION CERTIFICATE ================= */}
+        <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-6 flex flex-col">
+          <div className="relative h-56 w-full mb-6">
+            <Image
+              src="/certificates/course-completion.jpeg"
+              alt="Course Completion Certificate"
+              fill
+              className="object-contain rounded-lg"
+            />
+          </div>
+
+          <h2 className="text-xl font-semibold mb-2">
+            Course Completion Certificate
+          </h2>
+
+          <p className="text-gray-600 mb-8">
+            Issued after successful course completion.
+          </p>
+
+          <div className="mt-auto flex flex-col gap-4">
+            <Link
+              href="/certificate/apply?type=course-completion"
+              className="w-full text-center bg-green-200 text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+            >
+              Apply for Course Completion Certificate
+            </Link>
+
+            <Link
+              href="/certificate/download?type=course-completion"
+              className="w-full text-center bg-green-200 text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+            >
+              Download Certificate
+            </Link>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-export default function CertificatePage() {
-  return (
-    <section className="bg-gradient-to-b from-gray-50 to-white py-20">
-      <div className="max-w-7xl mx-auto px-4">
-
-        {/* CERTIFICATE SECTION 1 */}
-        <CertificateSection
-          heading="Course Completion Certificate"
-          badge="Academic Certificate"
-        />
-
-        {/* CERTIFICATE SECTION 2 */}
-        <CertificateSection
-          heading="SAP Professional Certificate"
-          badge="Professional Certificate"
-        />
-
-      </div>
-    </section>
+    </main>
   );
 }
