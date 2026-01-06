@@ -89,7 +89,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-hcm.png",
   },
 
   {
@@ -101,7 +101,7 @@ const courses = [
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/Sap.jpg",
+    image: "/courses/workday-payroll.png",
   },
 
 
