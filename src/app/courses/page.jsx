@@ -10,18 +10,23 @@ export default function CoursesPage() {
 
   // FILTER LOGIC
   const filteredCourses = coursesData.filter((course) => {
-    const categoryMatch =
-      !selectedCategory || course.category === selectedCategory;
+  const categoryMatch =
+    !selectedCategory ||
+    course.category
+      ?.toLowerCase()
+      .includes(selectedCategory.toLowerCase());
 
-    const levelMatch =
-      !selectedLevel || course.level === selectedLevel;
+  const levelMatch =
+    !selectedLevel ||
+    course.level?.toLowerCase() === selectedLevel.toLowerCase();
 
-    const searchMatch =
-      course.title.toLowerCase().includes(search.toLowerCase()) ||
-      course.description.toLowerCase().includes(search.toLowerCase());
+  const searchMatch =
+    course.title?.toLowerCase().includes(search.toLowerCase()) ||
+    course.description?.toLowerCase().includes(search.toLowerCase());
 
-    return categoryMatch && levelMatch && searchMatch;
-  });
+  return categoryMatch && levelMatch && searchMatch;
+});
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
@@ -56,7 +61,7 @@ export default function CoursesPage() {
         <aside className="bg-white p-5 rounded-lg shadow h-fit">
           <h3 className="font-semibold mb-4">Categories</h3>
           <ul className="space-y-2 text-sm">
-            {["Full Stack Developer", "Data Science", "Digital Marketing"].map(
+            {["SAP", "Full Stack Developer", "Data Science", "Digital Marketing","Workday","Salesforce"].map(
               (cat) => (
                 <li key={cat} className="flex items-center gap-2">
                   <input
