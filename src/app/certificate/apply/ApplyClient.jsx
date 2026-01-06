@@ -31,6 +31,8 @@ export default function ApplyClient() {
     endDate: "",
   });
 
+  const [successMessage, setSuccessMessage] = useState("");
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -47,7 +49,21 @@ export default function ApplyClient() {
       }),
     });
 
-    alert("Request submitted");
+    setSuccessMessage(
+      "Your certificate request has been submitted successfully."
+    );
+
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      course: "",
+      center: "",
+      facultyName: "",
+      studentId: "",
+      startDate: "",
+      endDate: "",
+    });
   };
 
   return (
@@ -85,26 +101,50 @@ export default function ApplyClient() {
             onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 gap-4"
           >
-            {/* ALL INPUTS — UNCHANGED */}
-            {[
-              ["name", "Name"],
-              ["email", "Email Address"],
-              ["phone", "Phone Number"],
-              ["course", "Course"],
-              ["facultyName", "Faculty Name"],
-              ["studentId", "Student ID Number"],
-            ].map(([name, label]) => (
-              <div key={name}>
-                <label className="text-sm font-medium">{label}</label>
-                <input
-                  name={name}
-                  value={form[name]}
-                  onChange={handleChange}
-                  className="input"
-                  required
-                />
-              </div>
-            ))}
+            {/* INPUT FIELDS */}
+            <div>
+              <label className="text-sm font-medium">Name</label>
+              <input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Email Address</label>
+              <input
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Phone Number</label>
+              <input
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Course</label>
+              <input
+                name="course"
+                value={form.course}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
 
             <div>
               <label className="text-sm font-medium">Center</label>
@@ -119,6 +159,30 @@ export default function ApplyClient() {
                 <option value="Mumbai">Mumbai</option>
                 <option value="Pune">Pune</option>
               </select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Faculty Name</label>
+              <input
+                name="facultyName"
+                value={form.facultyName}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">
+                Student ID Number
+              </label>
+              <input
+                name="studentId"
+                value={form.studentId}
+                onChange={handleChange}
+                className="input"
+                required
+              />
             </div>
 
             <div>
@@ -145,6 +209,7 @@ export default function ApplyClient() {
               />
             </div>
 
+            {/* BUTTONS */}
             <div className="md:col-span-2 flex gap-4 mt-6">
               <button
                 type="submit"
@@ -156,14 +221,23 @@ export default function ApplyClient() {
               <button
                 type="reset"
                 className="bg-gray-200 px-6 py-3 rounded-lg"
+                onClick={() => setSuccessMessage("")}
               >
                 Reset
               </button>
             </div>
+
+            {/* INLINE SUCCESS MESSAGE */}
+            {successMessage && (
+              <div className="md:col-span-2 mt-4 text-center text-green-600 font-medium">
+                {successMessage}
+              </div>
+            )}
           </form>
         </div>
       </div>
 
+      {/* INPUT STYLES */}
       <style jsx>{`
         .input {
           width: 100%;
