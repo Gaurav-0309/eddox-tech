@@ -27,13 +27,16 @@ const closeDropdown = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3 flex-shrink-0 whitespace-nowrap">
 
           <span className="text-xl font-extrabold text-orange-500 tracking-wide">
-            EDDOX‑TECHNOLOGY
+            EDDOX‑TECHNOLOGY <br />
+            <span className="text-xs  text-blue-500 tracking-wide">
+                Empowering Minds and Building Future
+          </span>
           </span>
           <img
             src="/images/eddox-logo.jpg"
@@ -82,8 +85,7 @@ const closeDropdown = () => {
                   "Salesforce",
                   "ERP Training",
                   "Full Stack",
-                  "Microsoft Excel",
-                  "Microsoft Powerpoint",
+                  "Data Science",
                   "Python",
                   "Java",
                   "Mobile Application Development",
