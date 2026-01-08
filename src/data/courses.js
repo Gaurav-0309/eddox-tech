@@ -65,9 +65,263 @@ const courses = [
     image: "/courses/digital-marketing.png",
   },
 
+  // SAP COURSES
+
   {
     slug: "sap-fi",
     title: "SAP FI",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-abap",
+    title: "SAP ABAP",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-basis",
+    title: "SAP BASIS",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-security",
+    title: "SAP Security",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-crm",
+    title: "SAP CRM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-fico",
+    title: "SAP FICO",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-mm",
+    title: "SAP MM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-pp",
+    title: "SAP PP",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-sd",
+    title: "SAP SD",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-ariba",
+    title: "SAP Ariba",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-ewm",
+    title: "SAP EWM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-tm",
+    title: "SAP TM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-hcm",
+    title: "SAP HCM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-ui5-fiori",
+    title: "SAP UI5 Fiori",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-ibp",
+    title: "SAP IBP",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-aatp",
+    title: "SAP AATP",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-fscm",
+    title: "SAP FSCM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-qm",
+    title: "SAP QM",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-le",
+    title: "SAP LE",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-netweaver",
+    title: "SAP NetWeaver",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-solution-manager",
+    title: "SAP Solution Manager",
+    category: "SAP",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/Sap.jpg",
+  },
+
+  {
+    slug: "sap-buisness-intelligence",
+    title: "SAP Business Intelligence",
     category: "SAP",
     level: "Beginner",
     description:
