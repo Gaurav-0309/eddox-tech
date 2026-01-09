@@ -2,21 +2,45 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import courses from "@/data/courses"; 
+
+
 
 
 export default function HeroSection() {
+  
+  const courseTitles = courses.map((c) => c.title);
+  
   const fullText = "  Your Gateway to the Best IT Training in India";
   const [displayText, setDisplayText] = useState("");
-
+  
   const [search, setSearch] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   const router = useRouter();
+  
+  
+  const handleSearchChange = (e) => {
+  const value = e.target.value;
+  setSearch(value);
+
+  if (!value.trim()) {
+    setSuggestions([]);
+    return;
+  }
+
+  const filtered = courses.filter((course) =>
+    course.title.toLowerCase().includes(value.toLowerCase())
+  );
+
+  setSuggestions(filtered.slice(0, 8)); // show max 8
+};
 
 
   useEffect(() => {
     let idx = 0;
     let mounted = true;
     let timeoutId = null;
-
+    
     const tick = () => {
       if (!mounted) return;
       if (idx < fullText.length) {
@@ -27,9 +51,9 @@ export default function HeroSection() {
         setDisplayText(fullText);
       }
     };
-
+    
     timeoutId = setTimeout(tick, 50);
-
+    
     return () => {
       mounted = false;
       if (timeoutId) clearTimeout(timeoutId);
@@ -62,13 +86,32 @@ export default function HeroSection() {
           </p>
 
           {/* Search */}
-          <div className="mt-8 flex max-w-md shadow-lg rounded-lg overflow-hidden">
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search courses"
-              className="flex-1 px-4 py-3 outline-none"
-            />
+          <div className="relative w-full max-w-2xl mx-auto border rounded-lg mt-8 flex shadow">
+            
+
+  <input
+    value={search}
+    onChange={handleSearchChange}
+    placeholder="Search courses"
+    className="flex-1 px-4 py-3 outline-none"
+  />
+
+  {suggestions.length > 0 && (
+    <div className="absolute left-0 top-full mt-1 w-full bg-white border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+      {suggestions.map((course, index) => (
+        <div
+          key={index}
+          onClick={() =>
+            router.push(`/courses?search=${encodeURIComponent(course.title)}`)
+          }
+          className="px-4 py-2 cursor-pointer hover:bg-blue-50 text-sm"
+        >
+          {course.title}
+        </div>
+      ))}
+    </div>
+  )}
+
             <button onClick={() => {
     if (!search.trim()) return;
     router.push(`/courses?search=${encodeURIComponent(search)}`);
@@ -76,8 +119,8 @@ export default function HeroSection() {
   className="bg-blue-600 text-white px-6 font-medium hover:bg-blue-700 transition">
               Search
             </button>
-          </div>
         </div>
+</div>
 
         {/* RIGHT */}
         <div className="relative">
