@@ -82,7 +82,7 @@ const closeDropdown = () => {
 
                 {[
                   "SAP Courses",
-                  "SAP Security Factors",
+                  "SAP Success Factors",
                   "Salesforce",
                   "Workday Courses",
                   "Full Stack Web Development Courses",
