@@ -1,8 +1,14 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
+
 
 export default function PaymentDetailsPage() {
   // Course pricing mapping
+  const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
+
   const coursePrices = {
     web: 25000,
     mobile: 30000,
@@ -56,6 +62,10 @@ export default function PaymentDetailsPage() {
   const handlePayment = async (e) => {
   e.preventDefault();
 
+  if (isLoading) return; // prevent double click
+  setIsLoading(true);
+
+
   if (!formData.amount || !formData.email || !formData.firstName) {
     alert("Please fill all required fields");
     return;
@@ -64,6 +74,7 @@ export default function PaymentDetailsPage() {
   const sdkLoaded = await loadRazorpay();
   if (!sdkLoaded) {
     alert("Razorpay SDK failed to load");
+    setIsLoading(false);
     return;
   }
 
@@ -90,20 +101,25 @@ export default function PaymentDetailsPage() {
       contact: formData.mobileNumber,
     },
     handler: async function (response) {
-      // 3️⃣ Verify payment
-      const verify = await fetch("/api/razorpay/verify-payment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(response),
-      });
+  const verify = await fetch("/api/razorpay/verify-payment", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...response,
+      userData: formData,
+    }),
+  });
+
 
       const result = await verify.json();
 
       if (result.success) {
-        alert("Payment Successful 🎉");
-      } else {
-        alert("Payment verification failed");
-      }
+  router.push("/fees/success");
+} else {
+  alert("Payment verification failed");
+  setIsLoading(false);
+}
+
     },
     theme: {
       color: "#2563eb",
@@ -250,7 +266,7 @@ export default function PaymentDetailsPage() {
 
             {/* Payment Type & Email */}
             <div className="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
-              <select
+              {/* <select
                 name="paymentType"
                 value={formData.paymentType}
                 onChange={handleChange}
@@ -267,7 +283,7 @@ export default function PaymentDetailsPage() {
                 <option value="upi">UPI</option>
                 <option value="netbanking">Net Banking</option>
                 <option value="wallet">Wallet</option>
-              </select>
+              </select> */}
               <input
                 type="email"
                 name="email"
@@ -321,11 +337,18 @@ export default function PaymentDetailsPage() {
 
             {/* Submit Button */}
             <button
-              onClick={handlePayment}
-              className="w-full px-4 py-4 bg-blue-600 text-white rounded-md text-lg font-semibold hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 transition-all duration-300 mt-3"
-            >
-              Proceed to Pay
-            </button>
+  onClick={handlePayment}
+  disabled={isLoading}
+  className={`w-full px-4 py-4 rounded-md text-lg font-semibold transition-all duration-300 mt-3 ${
+    isLoading
+      ? "bg-gray-400 cursor-not-allowed"
+      : "bg-blue-600 text-white hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl"
+  }`}
+>
+  {isLoading ? "Processing..." : "Proceed to Pay"}
+</button>
+
+
           </div>
         </div>
       </div>
