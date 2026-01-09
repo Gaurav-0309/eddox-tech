@@ -16,17 +16,23 @@ function CoursesContent() {
   const searchParams = useSearchParams();
 const urlSearch = searchParams.get("search") || "";
 const [search, setSearch] = useState(urlSearch);
+const categoryFromUrl = searchParams.get("category");
 
 
   const COURSES_PER_PAGE = 6;
 
   // 🔹 FILTER LOGIC (UNCHANGED)
   const filteredCourses = coursesData.filter((course) => {
-    const categoryMatch =
-      !selectedCategory ||
-      course.category
-        ?.toLowerCase()
-        .includes(selectedCategory.toLowerCase());
+
+    
+    const activeCategory = categoryFromUrl || selectedCategory;
+
+const categoryMatch =
+  !activeCategory ||
+  course.category
+    ?.toLowerCase()
+    .includes(activeCategory.toLowerCase());
+
 
     const levelMatch =
       !selectedLevel ||

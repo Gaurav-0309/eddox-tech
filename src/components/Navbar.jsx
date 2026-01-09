@@ -6,6 +6,22 @@ import Link from "next/link";
 export default function Navbar() {
   const closeTimer = useRef(null);
 
+  const courseDropdown = [
+  { label: "SAP Courses", category: "SAP" },
+  { label: "SAP Success Factor", category: "SAP Success Factor" },
+  { label: "Salesforce", category: "Salesforce" },
+  { label: "Workday Courses", category: "Workday" },
+  { label: "Full Stack Web Development Courses", category: "Full Stack Developer" },
+  { label: "Data Science", category: "Data Science" },
+  { label: "Digital Marketing", category: "Digital Marketing" },
+  { label: "Microsoft Azure Courses", category: "Microsoft Azure" },
+  { label: "Microsoft tools", category: "Microsoft Tools" },
+  { label: "HR and Business Analytics", category: "HR & Business Analytics" },
+  { label: "Prevention of Sexual Harassment (POSH)", category: "Security" },
+  { label: "Occupational Safety and Health Administration (OSHA)", category: "Security" },
+];
+
+
 const openDropdown = (menu) => {
   clearTimeout(closeTimer.current);
   setOpenMenu(menu);
@@ -80,27 +96,17 @@ const closeDropdown = () => {
 
 
 
-                {[
-                  "SAP Courses",
-                  "SAP Success Factors",
-                  "Salesforce",
-                  "Workday Courses",
-                  "Full Stack Web Development Courses",
-                  "Data Science",
-                  "Digital Marketing",
-                  "Microsoft Azure Courses",
-                  "Microsoft tools",
-                  "HR and Business Analytics",
-                  "Prevention of Sexual Harassment (POSH)",
-                  "Occupational Safety and Health Administration (OSHA)",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md cursor-pointer"
-                  >
-                    {item}
-                  </div>
-                ))}
+                {courseDropdown.map((item) => (
+  <Link
+    key={item.label}
+    href={`/courses?category=${encodeURIComponent(item.category)}`}
+    onClick={closeDropdown}
+    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md cursor-pointer"
+  >
+    {item.label}
+  </Link>
+))}
+
               </div>
             )}
           </li>
