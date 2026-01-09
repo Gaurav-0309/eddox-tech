@@ -2,10 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+
 
 import coursesData from "@/data/courses";
 
-export default function CoursesPage() {
+
+function CoursesContent() {
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -242,3 +246,12 @@ const [search, setSearch] = useState(urlSearch);
     </div>
   );
 }
+
+export default function CoursesPage() {
+  return (
+    <Suspense fallback={<div className="p-10">Loading courses...</div>}>
+      <CoursesContent />
+    </Suspense>
+  );
+}
+

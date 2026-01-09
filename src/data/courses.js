@@ -930,27 +930,27 @@ const courses = [
   // Security COURSES
 
   {
-    slug: "osha",
-    title: "OSHA",
+    slug: "occupational-safety-and-health-administration-(osha)",
+    title: "Occupational Safety and Health Administration (OSHA)",
     category: "Security",
     level: "Beginner",
     description:
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/workday-hcm.png",
+    image: "/courses/osha.jpg",
   },
 
   {
-    slug: "posh",
-    title: "POSH",
+    slug: "prevention-of-sexual-harassment-(posh)",
+    title: "Prevention of Sexual Harassment (POSH)",
     category: "Security",
     level: "Beginner",
     description:
       "Learn SAP modules, ERP systems, and business processes.",
     duration: "3 Months",
     mode: "Online / Offline",
-    image: "/courses/workday-hcm.png",
+    image: "/courses/posh.jpg",
   },
 
   
