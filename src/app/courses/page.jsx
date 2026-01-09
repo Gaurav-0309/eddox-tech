@@ -220,13 +220,13 @@ export default function CoursesPage() {
                   {course.description}
                 </p>
 
-                <p className="text-xs text-gray-500 mb-3">
+                {/* <p className="text-xs text-gray-500 mb-3">
                   <strong>Level:</strong> {course.level}
-                </p>
+                </p> */}
 
-                <button className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+                {/* <button className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
                   Details
-                </button>
+                </button> */}
               </div>
             </article>
           ))}
