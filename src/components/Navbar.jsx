@@ -82,17 +82,17 @@ const closeDropdown = () => {
 
                 {[
                   "SAP Courses",
+                  "SAP Security Factors",
                   "Salesforce",
-                  "ERP Training",
-                  "Full Stack",
+                  "Workday Courses",
+                  "Full Stack Web Development Courses",
                   "Data Science",
-                  "Python",
-                  "Java",
-                  "Mobile Application Development",
                   "Digital Marketing",
-                  "Network and Security",
-                  "POSH",
-                  "OSHA",
+                  "Microsoft Azure Courses",
+                  "Microsoft tools",
+                  "HR and Business Analytics",
+                  "Prevention of Sexual Harassment (POSH)",
+                  "Occupational Safety and Health Administration (OSHA)",
                 ].map((item) => (
                   <div
                     key={item}
