@@ -132,6 +132,11 @@ export default function CoursesPage() {
               "Digital Marketing",
               "Workday",
               "Salesforce",
+              "Microsoft Azure",
+              "HR & Business Analytics",
+              "Microsoft Tools",
+              "Security",
+              "SAP Success Factor"
             ].map((cat) => (
               <li key={cat} className="flex items-center gap-2">
                 <input
