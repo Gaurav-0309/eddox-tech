@@ -7,7 +7,7 @@ const courses = [
     category: "Full Stack Developer",
     level: "Beginner",
     description:
-    "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB and build real-world projects.",
+    "Learn to build powerful, database-driven web applications using Python and modern web frameworks, from basics to deployment.",
     duration: "6 Months",
     mode: "Online / Offline",
     image: "/courses/full-python.png",
@@ -20,7 +20,7 @@ const courses = [
     category: "Full Stack Developer",
     level: "Beginner",
     description:
-    "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB and build real-world projects.",
+    "Learn to build full-stack web applications using MongoDB, Express, React, and Node.js with complete frontend, backend, and deployment skills.",
     duration: "6 Months",
     mode: "Online / Offline",
     image: "/courses/full-mern.png",
@@ -32,7 +32,7 @@ const courses = [
     category: "Full Stack Developer",
     level: "Beginner",
     description:
-    "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB and build real-world projects.",
+    "Learn to build complete web applications using Java, Spring Boot, databases, and modern frontend technologies from end to end.",
     duration: "6 Months",
     mode: "Online / Offline",
     image: "/courses/full-java.png",
@@ -46,7 +46,7 @@ const courses = [
     category: "Data Science",
     level: "Intermediate",
     description:
-      "Master Python, statistics, machine learning, and data visualization with hands-on training.",
+      "Learn to analyze data, build machine learning models, and extract insights using Python, statistics, and real-world datasets.",
     duration: "5 Months",
     mode: "Online",
     image: "/courses/data-science.jpg",
@@ -59,7 +59,7 @@ const courses = [
     category: "Digital Marketing",
     level: "Beginner",
     description:
-      "SEO, social media marketing, Google Ads, content strategy and analytics.",
+      "Learn to promote brands online using SEO, social media, ads, and data-driven marketing strategies.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/digital-marketing.png",
@@ -485,7 +485,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Microsoft Azure Fundamentals",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -497,7 +497,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an expert in implementing and managing the Azure environment. Enroll today to learn from an Azure administrator.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -509,7 +509,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an expert in developing apps with Azure. Join today to learn from an expert cloud developer.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -521,7 +521,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn how to manage Azure infrastructure. Enroll now to learn under Azure solutions architect.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -533,7 +533,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to perform technical tasks on the Azure platform. Join now to learn from a skilled DevOps engineer.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -545,7 +545,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Understand how Azure security controls work. Enroll yourself today to learn from an Azure security engineer.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -557,7 +557,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an Azure expert. Join now to learn under an Azure specialist.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -569,7 +569,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to integrate and transform data from various data systems. Enroll today to learn from an Azure data engineer.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -581,7 +581,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to manage operational data platform solutions. Join now to learn from an Azure database administrator associate.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -593,7 +593,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an SC-900 course expert! Enroll now and learn from an Azure specialist.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -605,7 +605,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Microsoft Azure AI Fundamentals Training Program",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -617,7 +617,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to work with Azure Cloud services seamlessly. Enroll yourself and learn from Azure specialist.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -629,7 +629,7 @@ const courses = [
     category: "Microsoft Azure",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to work with Azure Developer services seamlessly. Enroll yourself and learn from Azure specialist.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/azure.jpg",
@@ -643,7 +643,7 @@ const courses = [
     category: "HR & Business Analytics",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an expert in all human resource functions. Join now to learn from an expert HR generalist.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/hr4.jpg",
@@ -655,7 +655,7 @@ const courses = [
     category: "HR & Business Analytics",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master all the legal HR practices. Join now and learn how to handle general legal issues easily.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/hr4.jpg",
@@ -667,7 +667,7 @@ const courses = [
     category: "HR & Business Analytics",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn how to use data for retrieving organizational insights. Join today to learn from an expert HR analyst.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/hr4.jpg",
@@ -679,7 +679,7 @@ const courses = [
     category: "HR & Business Analytics",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master all key HR management skills. Join now to learn from an HR payroll expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/hr4.jpg",
@@ -691,7 +691,7 @@ const courses = [
     category: "HR & Business Analytics",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become a skilled business analyst. Join now to learn from a competent industry practitioner.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/hr4.jpg",
@@ -703,7 +703,7 @@ const courses = [
     category: "HR & Business Analytics",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master data-driven decision-making with our Business Analytics Training Program for real-world success.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/hr4.jpg",
@@ -717,7 +717,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master the workings of SCCM software with our SCCM Certification Course. Join now to become a certified SCCM expert!",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoft.jpg",
@@ -729,7 +729,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an MS Office 365 expert. Join now to learn under an MS Office suite expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/office365.jpg",
@@ -741,7 +741,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become competent in working with MS Office 365. Join now to learn from an MS Office 365 expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/office365.jpg",
@@ -753,7 +753,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master the fundamentals of MS 365 platform. Enroll today to learn from a MS Office developer.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/office365.jpg",
@@ -765,7 +765,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Microsoft Access Training Program",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftAccess.jpg",
@@ -777,7 +777,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Microsoft Powershell Training Program",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoft.jpg",
@@ -789,7 +789,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become an expert in SharePoint. Enroll now to learn from an the certified professionals.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/sharepoint.jpg",
@@ -801,7 +801,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Microsoft Advance Excel Training Program",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftExcel.jpg",
@@ -813,7 +813,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become proficient in working with MS office. Join now to master this robust office suite software.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/office365.jpg",
@@ -825,7 +825,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Become proficient in Microsoft Word. Join now to learn from a MS Office specialist.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftWord.jpg",
@@ -837,7 +837,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Microsoft Excel VBA Training Program",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftExcel.jpg",
@@ -849,7 +849,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master the core concepts of MS PowerPoint. Enroll today to learn from a certified MS Office expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftPowerPoint.jpg",
@@ -861,7 +861,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master the fundamentals of Microsoft Intune. Join now to become a Microsoft Intune expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoft.jpg",
@@ -873,7 +873,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Excel Integration with AI Training Program",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftExcel.jpg",
@@ -885,7 +885,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to create automated processes with the MS Power platform. Join now to learn from an MS Power expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoft.jpg",
@@ -897,7 +897,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master the core concepts of MS Auto Pilot. Join now to learn from Auto Pilot expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/copilot.jpg",
@@ -909,7 +909,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master AI-driven automation with Microsoft Copilot Studio Training – build intelligent apps with ease.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/copilot.jpg",
@@ -921,7 +921,7 @@ const courses = [
     category: "Microsoft Tools",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn how to develop smart applications using Microsoft Power Apps. Join now to learn from a Power Apps expert.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/microsoftPowerApps.jpg",
@@ -962,7 +962,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday HCM with our industry-aligned training designed to help you handle the complete employee lifecycle—from hiring to payroll, learning, and career development.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-hcm.png",
@@ -974,7 +974,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Payroll with hands-on training designed to teach you complete payroll configuration, processing, taxation, compliance, and integration with HCM and Time Tracking.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-payroll.png",
@@ -987,7 +987,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Time Tracking & Absence Management with real practical training. Learn how to configure work schedules, manage attendance, create leave plans, handle accruals, integrate with payroll, and generate advanced reporting—exactly how global companies do it.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-time-tracking.png",
@@ -999,7 +999,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Recruiting with hands-on, practical training designed to teach you everything from job requisitions and candidate pipelines to interview management, offer approvals, onboarding, and recruitment analytics",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-recruiting.png",
@@ -1011,7 +1011,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Benefits with practical, hands-on training that teaches you how to configure benefit plans, eligibility rules, life events, enrollments, deductions, and payroll integration.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-benefits.png",
@@ -1023,7 +1023,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Learning with hands-on training designed to teach you how to create learning programs, assign courses, track employee progress, manage certifications, and integrate learning with performance and career development.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-learning.png",
@@ -1036,7 +1036,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Financial Management with hands-on, practical training designed to teach you General Ledger, Accounts Payable, Accounts Receivable, Procurement, Expenses, Budgeting, Reporting, and Financial Planning.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-financial.png",
@@ -1049,7 +1049,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn to design custom reports, build dashboards, analyze HR/Payroll/Finance data, and deliver insights using Workday Reporting & Analytics. ",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-reporting.png",
@@ -1061,7 +1061,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Integrations using EIB (Enterprise Interface Builder) and Workday Studio. Learn how to build inbound/outbound integrations, automate data flows, connect HR/Payroll/Finance systems, and handle real enterprise scenarios with hands-on practice.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-EIB.png",
@@ -1073,7 +1073,7 @@ const courses = [
     category: "Workday",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Master Workday Security and Business Process Framework (BPF) with hands-on training to configure security groups, roles, domain permissions, approval workflows, routing, and compliant business processes used by HR, Payroll, Finance, and Talent teams in top global companies.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/workday-security.png",
@@ -1089,7 +1089,7 @@ const courses = [
     category: "Salesforce",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      " You'll learn how to manage and tailor the Salesforce platform, a transferable skill that's in demand across industries. Get certified, acquire real-world experience, and move on to a rewarding position where companies will truly value your expertise. ",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/salesforce-admin.png",
@@ -1101,7 +1101,7 @@ const courses = [
     category: "Salesforce",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Learn Apex, Visualforce, and Integration skills that will make you stand apart from the crowd in the job market. With us, you get practical and skill-based training in real projects from industry experts to help you build a portfolio and get hired.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/salesforce-dev.png",
@@ -1113,7 +1113,7 @@ const courses = [
     category: "Salesforce",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      " It’s perfect if you want to specialise or improve your developer skills, you will build applications as fast and intuitive as modern enterprises expect.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/salesforce-lwc.png",
@@ -1125,7 +1125,7 @@ const courses = [
     category: "Salesforce",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      " We train you for both admin and developer pathways, that doubles your career and salary opportunities. Learn from certified experts, experience real-time scenarios to succeed immediately in the Salesforce world.",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/salesforce-a&d.png",
