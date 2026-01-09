@@ -935,7 +935,7 @@ const courses = [
     category: "Security",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Occupational Safety and Health Administration (OSHA)",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/osha.jpg",
@@ -947,7 +947,7 @@ const courses = [
     category: "Security",
     level: "Beginner",
     description:
-      "Learn SAP modules, ERP systems, and business processes.",
+      "Prevention of Sexual Harassment (POSH)",
     duration: "3 Months",
     mode: "Online / Offline",
     image: "/courses/posh.jpg",

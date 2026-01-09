@@ -69,14 +69,14 @@ const closeDropdown = () => {
 
             {openMenu === "courses" && (
               <div
-  onMouseEnter={() => openDropdown("courses")}
-  onMouseLeave={closeDropdown}
-  className={`absolute top-8 left-0 w-56 bg-white shadow-xl rounded-xl border p-2 z-50
-    transition-all duration-200 ease-out
-    ${openMenu === "courses"
-      ? "opacity-100 translate-y-0"
-      : "opacity-0 translate-y-2 pointer-events-none"}`}
->
+                  onMouseEnter={() => openDropdown("courses")}
+                  onMouseLeave={closeDropdown}
+                  className={`absolute top-8 left-0 w-56 bg-white shadow-xl rounded-xl border p-2 z-50
+                    transition-all duration-200 ease-out
+                  ${openMenu === "courses"
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2 pointer-events-none"}`}
+                >
 
 
 
