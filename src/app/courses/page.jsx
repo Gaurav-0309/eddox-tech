@@ -1,13 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+
 import coursesData from "@/data/courses";
 
 export default function CoursesPage() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
-  const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const searchParams = useSearchParams();
+const urlSearch = searchParams.get("search") || "";
+const [search, setSearch] = useState(urlSearch);
+
 
   const COURSES_PER_PAGE = 6;
 

@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function HeroSection() {
   const fullText = "  Your Gateway to the Best IT Training in India";
   const [displayText, setDisplayText] = useState("");
+
+  const [search, setSearch] = useState("");
+  const router = useRouter();
+
 
   useEffect(() => {
     let idx = 0;
@@ -58,10 +64,16 @@ export default function HeroSection() {
           {/* Search */}
           <div className="mt-8 flex max-w-md shadow-lg rounded-lg overflow-hidden">
             <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               placeholder="Search courses"
               className="flex-1 px-4 py-3 outline-none"
             />
-            <button className="bg-blue-600 text-white px-6 font-medium hover:bg-blue-700 transition">
+            <button onClick={() => {
+    if (!search.trim()) return;
+    router.push(`/courses?search=${encodeURIComponent(search)}`);
+  }} 
+  className="bg-blue-600 text-white px-6 font-medium hover:bg-blue-700 transition">
               Search
             </button>
           </div>
