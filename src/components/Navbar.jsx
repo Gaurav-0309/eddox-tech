@@ -35,7 +35,7 @@ const closeDropdown = () => {
           <span className="text-xl font-extrabold text-orange-500 tracking-wide">
             EDDOX‑TECHNOLOGY <br />
             <span className="text-xs  text-blue-500 tracking-wide">
-                Empowering Minds, Building Features
+                Empowering Minds, Building Future
           </span>
           </span>
           <img

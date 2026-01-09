@@ -477,6 +477,18 @@ const courses = [
     image: "/courses/sap.jpg",
   },
 
+   {
+    slug: "sap-smart-recruiter",
+    title: "SAP Smart Recruiter",
+    category: "SAP Success Factor",
+    level: "Beginner",
+    description:
+      "Learn SAP modules, ERP systems, and business processes.",
+    duration: "3 Months",
+    mode: "Online / Offline",
+    image: "/courses/sap.jpg",
+  },
+
   // Microsoft AZURE COURSES
 
   {
