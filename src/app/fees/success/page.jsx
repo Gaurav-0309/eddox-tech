@@ -34,6 +34,13 @@ function SuccessContent() {
       >
         ⬇ Download Receipt
       </button>
+
+      <a
+          href="/"
+          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+        >
+          Go to Home
+        </a>
     </div>
   );
 }
