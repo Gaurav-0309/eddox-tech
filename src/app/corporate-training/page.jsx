@@ -4,9 +4,18 @@ import ContactBenefits from "@/components/corporate/CorporateBenefits";
 import ContactValues from "@/components/corporate/CorporateValues";
 
 export const metadata = {
-  title: "Corporate-Training | Eddox-Technology",
-  description: "Get in touch with Eddox-Technology for corporate training and professional courses.",
+  title: "Corporate IT Training in India | Employee Skill Development – EDDOX Technology",
+  description:
+    "EDDOX Technology provides corporate IT training programs in India for companies, offering customized employee skill development in Full Stack, SAP, Data Science and more.",
+  keywords: [
+    "corporate IT training in India",
+    "employee training programs India",
+    "company software training India",
+    "corporate SAP training",
+    "corporate full stack training",
+  ],
 };
+
 
 export default function CorporateTrainingPage() {
   return (

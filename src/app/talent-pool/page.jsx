@@ -1,3 +1,17 @@
+export const metadata = {
+  title: "Hire Trained IT Students in India | Talent Pool – EDDOX Technology",
+  description:
+    "Hire job‑ready IT students from EDDOX Technology’s talent pool in India. Get trained candidates in Full Stack, SAP, Data Science and other technologies for your company.",
+  keywords: [
+    "hire IT freshers in India",
+    "software developers for hire India",
+    "IT talent pool India",
+    "hire trained students India",
+    "EDDOX Technology placement hiring",
+  ],
+};
+
+
 "use client";
 
 import { useEffect, useState } from "react";

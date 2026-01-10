@@ -1,3 +1,16 @@
+export const metadata = {
+  title: "Contact EDDOX Technology | IT Training Institute in India",
+  description:
+    "Contact EDDOX Technology in India for IT course admissions, corporate training and placement enquiries. Call, email or visit our training center today.",
+  keywords: [
+    "contact IT institute in India",
+    "EDDOX Technology address",
+    "IT training institute contact India",
+    "software training institute phone number India",
+  ],
+};
+
+
 export default function ContactUs() {
   return (
     <div className="w-full">

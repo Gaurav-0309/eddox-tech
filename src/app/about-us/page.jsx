@@ -1,10 +1,16 @@
-
-
 export const metadata = {
-  title: "About Us | Eddox Technology",
+  title: "About EDDOX Technology | Best IT Training Institute in India",
   description:
-    "Learn more about eddox technology, our mission, values, trainers, and commitment to quality IT education.",
+    "Learn about EDDOX Technology, a leading IT training institute in India providing industry‑oriented courses, expert trainers and placement support for students.",
+  keywords: [
+    "About EDDOX Technology",
+    "IT training institute in India",
+    "Best computer institute in India",
+    "Software training institute India",
+    "EDDOX Technology India",
+  ],
 };
+
 
 export default function AboutUs() {
   return (

@@ -1,3 +1,22 @@
+export const metadata = {
+  title: "Best IT Training Institute in India | EDDOX Technology",
+  description:
+    "EDDOX Technology is the best IT training institute in India offering courses in Full Stack Development, SAP, Data Science, Python and more with placement support.",
+  keywords: [
+    "IT training institute in India",
+    "Full stack Development courses ",
+    "SAP training courses",
+    "Data science courses ",
+    "Digital Marketing courses",
+    "SAP Success Factors training",
+    "Salesforce training courses",
+    "HR & Business Analytics courses",
+    "Microsoft Tools",
+    "Microsoft Azure courses",
+  ],
+};
+
+
 "use client";
 
 import { useEffect, useState } from "react";

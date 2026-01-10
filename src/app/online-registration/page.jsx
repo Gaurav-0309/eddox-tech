@@ -1,3 +1,17 @@
+export const metadata = {
+  title: "Online Course Registration | Enroll Now at EDDOX Technology India",
+  description:
+    "Register online for IT courses at EDDOX Technology in India. Enroll now for Full Stack, SAP, Data Science and other professional training programs with easy online admission.",
+  keywords: [
+    "online course registration India",
+    "IT course admission online",
+    "software training registration India",
+    "enroll IT course India",
+    "EDDOX Technology admission",
+  ],
+};
+
+
 "use client";
 import { useState } from "react";
 

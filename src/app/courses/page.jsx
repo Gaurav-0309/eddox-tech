@@ -1,3 +1,17 @@
+export const metadata = {
+  title: "IT Courses in India | Full Stack, SAP, Data Science – EDDOX Technology",
+  description:
+    "Explore all IT courses offered by EDDOX Technology in India including Full Stack Development, SAP, Data Science, Python and more with placement support.",
+  keywords: [
+    "IT courses in India",
+    "software courses in India",
+    "full stack course in India",
+    "SAP training institute India",
+    "data science course in India",
+    "computer courses India",
+  ],
+};
+
 "use client";
 
 import { useState, useEffect } from "react";

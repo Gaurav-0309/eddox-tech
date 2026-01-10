@@ -193,6 +193,7 @@ const closeDropdown = () => {
         { label: "Talent Pool to Hire", href: "/talent-pool" },
         { label: "Contact Us", href: "/contact-us" },
         { label: "Certificate", href: "/certificate" },
+        { label: "pay fees", href: "/fees" },
       ].map((item) => (
         <li key={item.href}>
           <Link
