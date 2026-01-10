@@ -100,6 +100,8 @@ export default function PaymentDetailsPage() {
       email: formData.email,
       contact: formData.mobileNumber,
     },
+
+    
     handler: async function (response) {
   const verify = await fetch("/api/razorpay/verify-payment", {
     method: "POST",
