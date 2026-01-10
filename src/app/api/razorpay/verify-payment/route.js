@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import crypto from "crypto";
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
@@ -76,12 +78,19 @@ export async function POST(req) {
       razorpay_payment_id,
     });
 
+
+    try {
+
     await transporter.sendMail({
       from: `EDDOX Technology <${process.env.RECEIPT_EMAIL}>`,
       to: userData.email,
       subject: "Payment Receipt - EDDOX Technology",
       html: receiptHTML,
     });
+    console.log("Receipt email sent successfully");
+  } catch (emailErr) {
+    console.error("Error failed:", emailErr);
+  }
 
     return NextResponse.json({ success: true });
 
