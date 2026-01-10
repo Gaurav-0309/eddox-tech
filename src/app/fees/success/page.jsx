@@ -1,25 +1,37 @@
+"use client";
+import { useSearchParams } from "next/navigation";
+
 export default function PaymentSuccessPage() {
+  const searchParams = useSearchParams();
+  const paymentId = searchParams.get("payment_id");
+
+  const downloadReceipt = () => {
+    if (!paymentId) return;
+    window.open(`/api/receipt?paymentId=${paymentId}`, "_blank");
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4">
-      <div className="bg-white p-10 rounded-xl shadow-lg text-center max-w-md w-full">
-        <div className="text-6xl mb-4">✅</div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-green-50 px-4">
+      <h1 className="text-4xl font-bold text-green-700">
+        ✅ Payment Successful
+      </h1>
 
-        <h1 className="text-2xl font-bold text-green-700 mb-2">
-          Payment Successful
-        </h1>
+      <p className="mt-4 text-lg text-center">
+        Receipt has been sent to your email.
+      </p>
 
-        <p className="text-gray-600 mb-6">
-          Thank you for your payment. Your transaction has been completed
-          successfully.
+      {paymentId && (
+        <p className="mt-2 text-sm text-gray-600">
+          Payment ID: {paymentId}
         </p>
+      )}
 
-        <a
-          href="/"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-        >
-          Go to Home
-        </a>
-      </div>
+      <button
+        onClick={downloadReceipt}
+        className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+      >
+        ⬇ Download Receipt
+      </button>
     </div>
   );
 }
