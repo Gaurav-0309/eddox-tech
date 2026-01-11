@@ -1,15 +1,41 @@
 export default function sitemap() {
-  const baseUrl = "https://https://eddox-tech.vercel.app/"; // 🔴 change after domain purchase
+  const baseUrl = "https://eddox-tech.vercel.app"; // 🔴 change after domain
 
-  return [
-    { url: `${baseUrl}/`, lastModified: new Date() },
-    { url: `${baseUrl}/about`, lastModified: new Date() },
-    { url: `${baseUrl}/courses`, lastModified: new Date() },
-    { url: `${baseUrl}/corporate-training`, lastModified: new Date() },
-    { url: `${baseUrl}/online-registration`, lastModified: new Date() },
-    { url: `${baseUrl}/talent-pool`, lastModified: new Date() },
-    { url: `${baseUrl}/contact`, lastModified: new Date() },
-    { url: `${baseUrl}/certificate`, lastModified: new Date() },
-    { url: `${baseUrl}/pay-fees`, lastModified: new Date() },
+  const staticPages = [
+    "",
+    "/about",
+    "/courses",
+    "/corporate-training",
+    "/online-registration",
+    "/talent-pool",
+    "/contact",
+    "/certificate",
+    "/pay-fees",
   ];
+
+  const categories = [
+    "SAP",
+    "Full Stack Developer",
+    "Data Science",
+    "Digital Marketing",
+    "Workday",
+    "Salesforce",
+    "Microsoft Azure",
+    "HR & Business Analytics",
+    "Microsoft Tools",
+    "Security",
+    "SAP Success Factor",
+  ];
+
+  const staticUrls = staticPages.map((page) => ({
+    url: `${baseUrl}${page}`,
+    lastModified: new Date(),
+  }));
+
+  const categoryUrls = categories.map((cat) => ({
+    url: `${baseUrl}/courses?category=${encodeURIComponent(cat)}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticUrls, ...categoryUrls];
 }
