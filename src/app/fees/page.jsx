@@ -1,16 +1,16 @@
 'use client';
-export const metadata = {
-  title: "Pay Course Fees Online | Secure Payment – EDDOX Technology",
-  description:
-    "Pay your IT course fees online at EDDOX Technology using secure payment options. Quick and safe fee payment for Full Stack, SAP, Data Science and other courses.",
-  keywords: [
-    "pay course fees online",
-    "IT training fees payment",
-    "online fee payment institute",
-    "secure course payment India",
-    "EDDOX Technology fee payment",
-  ],
-};
+// export const metadata = {
+//   title: "Pay Course Fees Online | Secure Payment – EDDOX Technology",
+//   description:
+//     "Pay your IT course fees online at EDDOX Technology using secure payment options. Quick and safe fee payment for Full Stack, SAP, Data Science and other courses.",
+//   keywords: [
+//     "pay course fees online",
+//     "IT training fees payment",
+//     "online fee payment institute",
+//     "secure course payment India",
+//     "EDDOX Technology fee payment",
+//   ],
+// };
 
 
 import { useState } from 'react';

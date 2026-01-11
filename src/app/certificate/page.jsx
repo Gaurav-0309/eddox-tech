@@ -1,16 +1,16 @@
 "use client";
-export const metadata = {
-  title: "Course Completion Certificate | Get Certified at EDDOX Technology",
-  description:
-    "Students at EDDOX Technology receive course completion certificates after training. Our IT certifications help improve job opportunities and career growth.",
-  keywords: [
-    "IT course certificate",
-    "training institute certificate",
-    "course completion certificate India",
-    "software training certification",
-    "EDDOX Technology certificate",
-  ],
-};
+// export const metadata = {
+//   title: "Course Completion Certificate | Get Certified at EDDOX Technology",
+//   description:
+//     "Students at EDDOX Technology receive course completion certificates after training. Our IT certifications help improve job opportunities and career growth.",
+//   keywords: [
+//     "IT course certificate",
+//     "training institute certificate",
+//     "course completion certificate India",
+//     "software training certification",
+//     "EDDOX Technology certificate",
+//   ],
+// };
 
 
 
