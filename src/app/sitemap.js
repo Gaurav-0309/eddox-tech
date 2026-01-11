@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://yourdomain.com"; // 🔴 change after domain purchase
+  const baseUrl = "https://https://eddox-tech.vercel.app/"; // 🔴 change after domain purchase
 
   return [
     { url: `${baseUrl}/`, lastModified: new Date() },

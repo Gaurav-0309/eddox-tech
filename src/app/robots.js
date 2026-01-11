@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://yourdomain.com/sitemap.xml", // 🔴 change after domain
+    sitemap: "https://https://eddox-tech.vercel.app//sitemap.xml", // 🔴 change after domain
   };
 }
