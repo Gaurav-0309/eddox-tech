@@ -1,3 +1,4 @@
+"use client";
 export const metadata = {
   title: "Hire Trained IT Students in India | Talent Pool – EDDOX Technology",
   description:
@@ -12,7 +13,6 @@ export const metadata = {
 };
 
 
-"use client";
 
 import { useEffect, useState } from "react";
 

@@ -1,3 +1,4 @@
+"use client";
 export const metadata = {
   title: "Online Course Registration | Enroll Now at EDDOX Technology India",
   description:
@@ -12,7 +13,6 @@ export const metadata = {
 };
 
 
-"use client";
 import { useState } from "react";
 
 export default function OnlineRegistration() {

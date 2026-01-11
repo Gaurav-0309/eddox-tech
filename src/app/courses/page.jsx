@@ -1,3 +1,4 @@
+"use client";
 export const metadata = {
   title: "IT Courses in India | Full Stack, SAP, Data Science – EDDOX Technology",
   description:
@@ -12,7 +13,6 @@ export const metadata = {
   ],
 };
 
-"use client";
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";

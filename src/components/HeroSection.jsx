@@ -1,3 +1,4 @@
+"use client";
 export const metadata = {
   title: "Best IT Training Institute in India | EDDOX Technology",
   description:
@@ -17,7 +18,6 @@ export const metadata = {
 };
 
 
-"use client";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";

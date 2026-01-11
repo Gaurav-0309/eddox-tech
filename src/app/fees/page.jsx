@@ -1,3 +1,4 @@
+'use client';
 export const metadata = {
   title: "Pay Course Fees Online | Secure Payment – EDDOX Technology",
   description:
@@ -12,7 +13,6 @@ export const metadata = {
 };
 
 
-'use client';
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
 

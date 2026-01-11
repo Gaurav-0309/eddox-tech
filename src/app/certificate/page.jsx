@@ -1,3 +1,4 @@
+"use client";
 export const metadata = {
   title: "Course Completion Certificate | Get Certified at EDDOX Technology",
   description:
@@ -12,7 +13,6 @@ export const metadata = {
 };
 
 
-"use client";
 
 import Image from "next/image";
 import Link from "next/link";
