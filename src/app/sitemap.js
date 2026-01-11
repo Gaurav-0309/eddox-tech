@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://eddox-tech.vercel.app"; // 🔴 change after domain
+  const baseUrl = "https://eddoxtechnology.com"; // 🔴 change after domain
 
   const staticPages = [
     "",
