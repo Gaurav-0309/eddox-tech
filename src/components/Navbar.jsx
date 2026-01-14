@@ -147,7 +147,7 @@ const closeDropdown = () => {
                   href="/fees"
                   className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-md"
                 >
-                  Pay Fees
+                  Pay here
                 </Link>
 
 
@@ -193,7 +193,7 @@ const closeDropdown = () => {
         { label: "Talent Pool to Hire", href: "/talent-pool" },
         { label: "Contact Us", href: "/contact-us" },
         { label: "Certificate", href: "/certificate" },
-        { label: "pay fees", href: "/fees" },
+        { label: "Pay here", href: "/fees" },
       ].map((item) => (
         <li key={item.href}>
           <Link
