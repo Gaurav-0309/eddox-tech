@@ -1,5 +1,5 @@
-import { CoursesContent } from "@/app/courses/page"; 
-// ⚠️ adjust import path based on where your file actually lives
+import { Suspense } from "react";
+import { CoursesContent } from "@/app/courses/page";
 
 export const metadata = {
   title: "SAP Training Institute | SAP Certification Course",
@@ -8,5 +8,9 @@ export const metadata = {
 };
 
 export default function SapCoursePage() {
-  return <CoursesContent defaultCategory="SAP" />;
+  return (
+    <Suspense fallback={<div style={{ padding: 40 }}>Loading courses...</div>}>
+      <CoursesContent defaultCategory="SAP" />
+    </Suspense>
+  );
 }
