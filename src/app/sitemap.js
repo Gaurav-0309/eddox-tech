@@ -11,6 +11,7 @@ export default function sitemap() {
     "/contact",
     "/certificate",
     "/pay-fees",
+    "/sap-course",
   ];
 
   const categories = [
