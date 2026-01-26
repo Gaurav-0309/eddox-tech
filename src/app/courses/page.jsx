@@ -22,9 +22,9 @@ import { Suspense } from "react";
 import coursesData from "@/data/courses";
 
 
-function CoursesContent() {
+export function CoursesContent({ defaultCategory = "" }) {
 
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(defaultCategory );
   const [selectedLevel, setSelectedLevel] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const searchParams = useSearchParams();
@@ -36,30 +36,50 @@ const categoryFromUrl = searchParams.get("category");
   const COURSES_PER_PAGE = 6;
 
   // 🔹 FILTER LOGIC (UNCHANGED)
-  const filteredCourses = coursesData.filter((course) => {
+//   const filteredCourses = coursesData.filter((course) => {
 
     
-    const activeCategory = categoryFromUrl || selectedCategory;
+//     const activeCategory = (defaultCategory || categoryFromUrl || selectedCategory || "").trim();
 
-const categoryMatch =
-  !activeCategory ||
-  course.category
-    ?.toLowerCase()
-    .includes(activeCategory.toLowerCase());
+// const categoryMatch =
+//   !activeCategory ||course.category?.toLowerCase().includes(activeCategory.toLowerCase());
 
 
-    const levelMatch =
-      !selectedLevel ||
-      course.level?.toLowerCase() === selectedLevel.toLowerCase();
+//     const levelMatch =
+//       !selectedLevel ||
+//       course.level?.toLowerCase() === selectedLevel.toLowerCase();
 
-    const searchMatch =
-      course.title?.toLowerCase().includes(search.toLowerCase()) ||
-      course.description
-        ?.toLowerCase()
-        .includes(search.toLowerCase());
+//     const searchMatch =
+//       course.title?.toLowerCase().includes(search.toLowerCase()) ||
+//       course.description
+//         ?.toLowerCase()
+//         .includes(search.toLowerCase());
 
-    return categoryMatch && levelMatch && searchMatch;
-  });
+//     return categoryMatch && levelMatch && searchMatch;
+//   });
+
+
+const filteredCourses = coursesData.filter((course) => {
+  const activeCategory =
+    (defaultCategory || categoryFromUrl || selectedCategory || "").trim();
+
+  const categoryMatch =
+    !activeCategory ||
+    course.category?.toLowerCase() === activeCategory.toLowerCase();
+
+  const levelMatch =
+    !selectedLevel ||
+    course.level?.toLowerCase() === selectedLevel.toLowerCase();
+
+  const searchMatch =
+    course.title?.toLowerCase().includes(search.toLowerCase()) ||
+    course.description
+      ?.toLowerCase()
+      .includes(search.toLowerCase());
+
+  return categoryMatch && levelMatch && searchMatch;
+});
+
 
   // 🔹 RESET PAGE WHEN FILTERS CHANGE
   useEffect(() => {
