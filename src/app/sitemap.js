@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://eddoxtechnology.com"; // 🔴 change after domain
+  const baseUrl = "https://www.eddoxtechnology.com"; // 🔴 change after domain
 
   const staticPages = [
     "",
