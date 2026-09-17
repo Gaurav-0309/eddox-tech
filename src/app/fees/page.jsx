@@ -24,10 +24,12 @@ export default function PaymentDetailsPage() {
   const router = useRouter();
 
   const coursePrices = {
-    web: 25000,
-    mobile: 30000,
-    data: 35000,
-    ai: 40000
+    "SAP HCM": 40000,
+    "SAP Success Factor": 60000,
+    "web": 25000,
+    "mobile": 30000,
+    "data": 35000,
+    "ai": 40000
   };
 
   const [formData, setFormData] = useState({
