@@ -347,6 +347,8 @@ export default function PaymentDetailsPage() {
               }}
             >
               <option value="">Select Course</option>
+              <option value="sap-hcm">SAP HCM - ₹40,000</option>
+              <option value="sap-success-factor">SAP Success Factor - ₹60,000</option>
               <option value="web">Web Development - ₹25,000</option>
               <option value="mobile">Mobile Development - ₹30,000</option>
               <option value="data">Data Science - ₹35,000</option>
